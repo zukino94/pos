@@ -1,0 +1,541 @@
+openapi: 3.0.3
+info:
+  title: POS API
+  description: API for POS (Point of Sale) system.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Auth
+    description: Authentication endpoints
+
+paths:
+
+  /api/login:
+    post:
+      tags:
+        - Auth
+      summary: Login and get access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+  
+  /api/create-cashier:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/update-cashier-password:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/delete-cashier:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/new-transaction:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/add-to-transaction:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/checkout-transaction:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/add-product:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/update-product:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+  /api/delete-product:
+    post:
+      tags:
+        - Auth
+      summary: Create New Cashier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: admin
+              password: secret123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                user:
+                  id: 1
+                  username: admin
+                  name: Administrator
+                  role: admin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+              example:
+                message: Username atau password salah
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServer'
+              example:
+                reference: ajsajshjdgdeydgvdydvwdywvdywdv
+                message: Internal Server Error
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          minLength: 3
+          example: admin
+        password:
+          type: string
+          minLength: 6
+          format: password
+          example: secret123
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT access token
+        user:
+          $ref: '#/components/schemas/User'
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        username:
+          type: string
+          example: admin
+        name:
+          type: string
+          example: Administrator
+        role:
+          type: string
+          enum:
+            - admin
+            - cashier
+          example: admin
+
+    ErrorBadRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Username atau password salah
+
+    ErrorInternalServer:
+      type: object
+      properties:
+        reference:
+          type: string
+          example: hdkshdksdhwkdhskdhsdkshd
+        message:
+          type: string
+          example: Internal Server Error
