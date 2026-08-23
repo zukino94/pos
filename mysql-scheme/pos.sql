@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS `kasir` (
 CREATE TABLE IF NOT EXISTS `produk` (
   `id`         BIGINT           NOT NULL AUTO_INCREMENT,
   `name`       VARCHAR(255)     NOT NULL,
+  `purchase_price` DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  `selling_price` DECIMAL(12,2) NOT NULL DEFAULT 0.00,
   `stock`      SMALLINT UNSIGNED NOT NULL DEFAULT 0,
   `created_at` TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -41,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `produk` (
 CREATE TABLE IF NOT EXISTS `transaksi` (
   `id`                BIGINT       NOT NULL AUTO_INCREMENT,
   `kasir`             VARCHAR(255) NOT NULL,
-  `total_transaction` VARCHAR(255) NOT NULL,
+  `total_transaction` DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  `profit` DECIMAL(12,2) NOT NULL DEFAULT 0.00,
   `created_at`        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -53,10 +56,11 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `transaksi_detail` (
   `id`            BIGINT       NOT NULL AUTO_INCREMENT,
+  `transaction_id`  BIGINT NOT NULL,
   `product_name`  VARCHAR(255) NOT NULL,
   `total_product` VARCHAR(255) NOT NULL,
-  `amount`        VARCHAR(255) NOT NULL,
-  `total_amount`  VARCHAR(255) NOT NULL,
+  `amount`        DECIMAL(12,2) NOT NULL DEFAULT 0,
+  `total_amount`  DECIMAL(12,2) NOT NULL DEFAULT 0,
   `created_at`    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at`    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
